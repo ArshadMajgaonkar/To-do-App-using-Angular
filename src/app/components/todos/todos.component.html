@@ -1,0 +1,13 @@
+
+.<div class="container col-10 col-md-5">
+    <input type="text" name="content" class="form-control col-10 col-md-8" [(ngModel)]="inputTodo">
+    <button class="btn btn-primary col-8 col-md-4" (click)="add()">Add Todo</button>
+</div>
+
+
+
+<div class="container" *ngFor="let item of todos; let i=index;">
+    <span>{{i}}</span>
+    <span>{{item.content}}</span>
+    <span><button>Remove</button></span>
+</div>
