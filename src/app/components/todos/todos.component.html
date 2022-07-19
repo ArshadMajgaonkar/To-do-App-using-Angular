@@ -1,13 +1,47 @@
-
-.<div class="container col-10 col-md-5">
-    <input type="text" name="content" class="form-control col-10 col-md-8" [(ngModel)]="inputTodo">
-    <button class="btn btn-primary col-8 col-md-4" (click)="add()">Add Todo</button>
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <div class="input-group my-3">
+      <input
+        type="text"
+        class="form-control"
+        name="content"
+        placeholder="Listen music"
+        aria-label="enter task"
+        aria-describedby="basic-addon2"
+        [(ngModel)]="inputTodo"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-outline-warning text-danger text-bold" type="button" (click)="add()">+</button>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- <div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let item of todos; let i = index">
+        
+      </li>
+    </ul>
+</div> -->
 
-
-<div class="container" *ngFor="let item of todos; let i=index;">
-    <span>{{i}}</span>
-    <span>{{item.content}}</span>
-    <span><button>Remove</button></span>
+<div class="card mb-2 shadow" *ngFor="let item of todos; let i = index">
+    <div class="card-body d-flex flex-row">
+        <div class="col-2">{{ i + 1 }}</div>
+        <div class="col-7">{{ item.content }}</div>
+        <div class="col-2 offset-1">
+            <input type="submit" id="{{ i }}" (click)="remove(i, todos.length)" class="btn btn-danger text-white" value="X">
+        </div>
+    </div>
 </div>
+
+<!-- <div class="container" *ngFor="let item of todos; let i = index">
+  <span>{{ i + 1 }}</span>
+  <span>{{ item.content }}</span>
+  <span
+    ><button id="{{ i }}" (click)="remove(i, todos.length)">
+      Remove
+    </button>
+  </span>
+  
+</div> -->
